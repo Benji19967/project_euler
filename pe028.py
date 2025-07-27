@@ -28,8 +28,24 @@ def sum_diag_2():
     return _sum
 
 
+def sol_2():
+    _sum = 1
+    for n in range(3, 1002, 2):
+        """
+        The 4 corners are given by
+        n^2
+        n^2 - n + 1
+        n^2 - 2n + 2
+        n^2 - 3n + 3
+        --> 4n^2 - 6n + 6
+        """
+        _sum += (4 * n * n) - (6 * n) + 6
+    return _sum
+
+
 def main():
     print(sum_diag_1() + sum_diag_2())
+    print(sol_2())
 
 
 if __name__ == "__main__":
