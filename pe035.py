@@ -22,8 +22,8 @@ def get_rotations(n):
 
 
 def main():
-    primes = []
-    for n in range(1_000_001):
+    primes = [2]
+    for n in range(3, 1_000_001, 2):
         if sympy.isprime(n):
             primes.append(n)
 
