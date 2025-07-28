@@ -1,12 +1,6 @@
 import sympy
 
-
-def digits_of_int(n):
-    digits = []
-    while n > 0:
-        digits.append(n % 10)
-        n //= 10
-    return reversed(digits)
+from utils.primes import generate_primes
 
 
 def get_rotations(n):
@@ -22,10 +16,7 @@ def get_rotations(n):
 
 
 def main():
-    primes = [2]
-    for n in range(3, 1_000_001, 2):
-        if sympy.isprime(n):
-            primes.append(n)
+    primes = generate_primes(1_000_001)
 
     count = 0
     for p in primes:
