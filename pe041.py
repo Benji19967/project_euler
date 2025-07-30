@@ -1,8 +1,6 @@
-import itertools
-
 import sympy
 
-from utils.primes import generate_primes
+from utils.pandigitals import generate_pandigitals
 
 """
 Optimization: n can only contain 7 digits.
@@ -17,9 +15,8 @@ sum_digits(n) is divisible by 3, and thus, so is n. In that case, n is not prime
 
 def main():
     for num_digits in range(7, 0, -1):
-        digits = int("".join([str(d) for d in range(num_digits, 0, -1)]))
-        for n_str in itertools.permutations(str(digits), num_digits):
-            n = int("".join(n_str))
+        pandigitals = generate_pandigitals(start=1, num_digits=num_digits, reverse=True)
+        for n in pandigitals:
             if sympy.isprime(n):
                 print(n)
                 break
