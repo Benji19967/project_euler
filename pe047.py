@@ -28,6 +28,7 @@ def main():
             consecutive += 1
             if consecutive == 4:
                 print(n - 3)
+                break
         else:
             consecutive = 0
 
