@@ -3,7 +3,7 @@ import math
 import numpy as np
 
 
-def primes_up_to(n):
+def primes_up_to(n) -> np.ndarray:
     """Efficiently generate all primes <= n using NumPy and odd-only optimization."""
     if n < 2:
         return []
