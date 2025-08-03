@@ -1,5 +1,25 @@
 import math
 
+import numpy as np
+
+
+def primes_up_to(n):
+    """Efficiently generate all primes <= n using NumPy and odd-only optimization."""
+    if n < 2:
+        return []
+
+    # Only consider odd numbers (2 is the only even prime)
+    sieve = np.ones((n // 2,), dtype=bool)
+    sieve[0] = False  # 1 is not prime
+
+    for i in range(3, int(n**0.5) + 1, 2):
+        if sieve[i // 2]:
+            sieve[i * i // 2 :: i] = False
+
+    # Convert sieve index to actual prime numbers
+    primes = np.nonzero(sieve)[0] * 2 + 1
+    return np.insert(primes, 0, 2)  # Insert 2, the only even prime
+
 
 def generate_primes(n, start: int = 2):
     """
