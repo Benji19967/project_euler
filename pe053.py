@@ -1,0 +1,14 @@
+import math
+
+
+def main():
+    count = 0
+    for n in range(1, 101):
+        for r in range(1, n):
+            if math.comb(n, r) > 1_000_000:
+                count += 1
+    print(count)
+
+
+if __name__ == "__main__":
+    main()
