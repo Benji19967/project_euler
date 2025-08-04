@@ -22,15 +22,13 @@ def reverse(n: int) -> int:
     return rev
 
 
-def is_palindromic(n) -> bool:
-    if n <= 9:
-        return True
+def sum_digits(n: int) -> int:
+    _sum = 0
+    while n > 0:
+        _sum += n % 10
+        n //= 10
+    return _sum
 
-    n_str = str(n)
-    i, j = 0, len(n_str) - 1
-    while i < j:
-        if n_str[i] != n_str[j]:
-            return False
-        i += 1
-        j -= 1
-    return True
+
+def is_palindromic(n) -> bool:
+    return str(n) == str(n)[::-1]
